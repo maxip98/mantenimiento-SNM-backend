@@ -36,13 +36,3 @@ exports.deleteTask = async (req, res) => {
     res.status(500).send('Error al eliminar tarea');
   }
 };
-
-// Nueva función para completar una tarea
-exports.completeTask = async (req, res) => {
-  try {
-    const task = await Task.findByIdAndUpdate(req.params.id, { completed: true }, { new: true });
-    res.status(200).json(task);
-  } catch (error) {
-    res.status(500).json({ message: 'Error al completar la tarea' });
-  }
-};
