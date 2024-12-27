@@ -1,14 +1,12 @@
-//Task
 const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({
-  local: String,
-  pedido: String,
-  descripcion: String,
-  prioridad: String,
+  local: { type: String, required: true },
+  pedido: { type: String, required: true },
+  descripcion: { type: String, required: true },
+  prioridad: { type: String, required: true },
   fechaCarga: { type: Date, default: Date.now },
-  completada: { type: Boolean, default: false },
-  fechaFinalizacion: Date
+  completed: { type: Boolean, default: false } // Nuevo campo
 });
 
 module.exports = mongoose.model('Task', taskSchema);
