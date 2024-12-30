@@ -9,7 +9,8 @@ dotenv.config(); // Cargar variables de entorno desde .env
 
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/gestionMantenimiento', {
+// Conectar a MongoDB Atlas
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
@@ -18,8 +19,9 @@ mongoose.connect('mongodb://localhost:27017/gestionMantenimiento', {
   console.error('Error al conectar a la base de datos:', err); // Mensaje de depuración
 });
 
+// Configurar CORS
 const corsOptions = {
-  origin: 'http://localhost:3000', // Cambia esto a la URL de tu frontend
+  origin: 'https://saynomoremantenimiento.netlify.app', // Cambia esto a la URL de tu frontend en Netlify
   optionsSuccessStatus: 200
 };
 
