@@ -4,11 +4,17 @@ const dotenv = require('dotenv');
 
 dotenv.config(); // Cargar variables de entorno desde .env
 
+// Verificar que la URI esté definida
+if (!process.env.MONGODB_URI) {
+  console.error('Error: MONGODB_URI no está definida en el archivo .env');
+  process.exit(1);
+}
+
 // Conectar a MongoDB Atlas
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  dbName: 'mantenimiento' // Especifica el nombre de la base de datos aquí
+  dbName: 'tu_base_de_datos' // Especifica el nombre de la base de datos aquí
 }).then(() => {
   console.log('Conectado a la base de datos');
 }).catch(err => {
