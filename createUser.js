@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 dotenv.config(); // Cargar variables de entorno desde .env
 
 // Conectar a MongoDB Atlas
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
