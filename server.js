@@ -4,6 +4,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const taskRoutes = require('./routes/taskRoutes');
 const authRoutes = require('./routes/authRoutes');
+const User = require('./models/User'); // Importa el modelo de usuario
 
 dotenv.config();
 
@@ -42,6 +43,16 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
   console.log('Solicitud recibida:', req.method, req.url);
   next();
+});
+
+// Ruta de prueba para verificar la conexión a la base de datos
+app.get('/api/db-test', async (req, res) => {
+  try {
+    const userCount = await User.countDocuments();
+    res.json({ message: 'Conexión exitosa con MongoDB', userCount });
+  } catch (error) {
+    res.status(500).json({ message: 'Error al conectar con MongoDB', error });
+  }
 });
 
 // Rutas
