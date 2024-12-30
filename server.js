@@ -30,6 +30,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
+// Middleware global para manejar CORS
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://saynomoremantenimiento.netlify.app');
+    res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    next();
+});
+
 // Middleware de depuración
 app.use((req, res, next) => {
   console.log('Solicitud recibida:', req.method, req.url);
@@ -38,7 +46,7 @@ app.use((req, res, next) => {
 
 // Rutas
 app.use('/api/tasks', taskRoutes);
-app.use('/api/auth', cors(corsOptions), authRoutes);
+app.use('/api/auth', authRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
