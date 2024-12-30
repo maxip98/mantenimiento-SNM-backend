@@ -12,7 +12,7 @@ if (!process.env.MONGODB_URI) {
 
 // Conectar a MongoDB Atlas
 mongoose.connect(process.env.MONGODB_URI, {
-  dbName: 'tu_base_de_datos' // Especifica el nombre de la base de datos aquí
+  dbName: 'mantenimiento' // Especifica el nombre de la base de datos aquí
 }).then(() => {
   console.log('Conectado a la base de datos');
 }).catch(err => {
