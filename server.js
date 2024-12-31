@@ -10,6 +10,14 @@ dotenv.config();
 
 const app = express();
 
+// Verificar que la URI esté definida
+if (!process.env.MONGODB_URI) {
+  console.error('Error: MONGODB_URI no está definida en el archivo .env');
+  process.exit(1);
+}
+
+console.log('MONGODB_URI:', process.env.MONGODB_URI); // Mensaje de depuración
+
 // Conectar a MongoDB Atlas
 mongoose.connect(process.env.MONGODB_URI, {
   dbName: 'mantenimiento' // Especifica el nombre de la base de datos aquí
@@ -51,6 +59,7 @@ app.get('/api/db-test', async (req, res) => {
     const userCount = await User.countDocuments();
     res.json({ message: 'Conexión exitosa con MongoDB', userCount });
   } catch (error) {
+    console.error('Error al conectar con MongoDB:', error); // Mensaje de depuración
     res.status(500).json({ message: 'Error al conectar con MongoDB', error });
   }
 });
