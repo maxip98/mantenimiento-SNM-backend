@@ -25,7 +25,7 @@ const createUser = async () => {
     const user = new User({
       username: 'diego', // Cambia esto por el nombre de usuario deseado
       password: 'diego2025', // Cambia esto por la contraseña deseada
-      role: 'user' // Cambia esto por el rol deseado (admin o user)
+      role: 'viewer' // Cambia esto por el rol deseado (admin o user)
     });
 
     await user.save();
