@@ -31,7 +31,8 @@ exports.login = async (req, res) => {
       return res.status(401).send('Credenciales incorrectas');
     }
 
-    const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    // Incluye el nombre de usuario en el payload del token
+    const token = jwt.sign({ id: user._id, username: user.username, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
     res.json({ token });
   } catch (error) {
     console.error('Error durante el inicio de sesión:', error);
