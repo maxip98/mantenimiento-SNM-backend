@@ -23,9 +23,9 @@ mongoose.connect(process.env.MONGODB_URI, {
 const createUser = async () => {
   try {
     const user = new User({
-      username: 'admin2', // Cambia esto por el nombre de usuario deseado
-      password: 'admin22', // Cambia esto por la contraseña deseada
-      role: 'admin' // Cambia esto por el rol deseado (admin o user)
+      username: 'diego', // Cambia esto por el nombre de usuario deseado
+      password: 'diego2025', // Cambia esto por la contraseña deseada
+      role: 'user' // Cambia esto por el rol deseado (admin o user)
     });
 
     await user.save();
