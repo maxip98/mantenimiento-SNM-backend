@@ -4,7 +4,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const taskRoutes = require('./routes/taskRoutes');
 const authRoutes = require('./routes/authRoutes');
-const User = require('./models/User'); // Importa el modelo de usuario
+const User = require('./models/User'); 
 
 dotenv.config();
 
