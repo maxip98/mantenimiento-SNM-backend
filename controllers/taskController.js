@@ -11,13 +11,14 @@ exports.getTasks = async (req, res) => {
 
 exports.createTask = async (req, res) => {
   try {
-    const { local, pedido, descripcion, prioridad } = req.body;
+    const { local, pedido, descripcion, prioridad, tipoMantenimiento } = req.body;
     console.log('Usuario que crea la tarea:', req.user.username); // Mensaje de depuración
     const newTask = new Task({
       local,
       pedido,
       descripcion,
       prioridad,
+      tipoMantenimiento,
       pedidoPor: req.user.username // Asignar el nombre de usuario del creador
     });
     await newTask.save();

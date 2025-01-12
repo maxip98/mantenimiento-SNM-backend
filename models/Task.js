@@ -7,7 +7,8 @@ const taskSchema = new mongoose.Schema({
   prioridad: { type: String, required: true },
   fechaCarga: { type: Date, default: Date.now },
   completed: { type: Boolean, default: false },
-  pedidoPor: { type: String, required: true } // Nuevo campo
+  pedidoPor: { type: String, required: true },
+  tipoMantenimiento: { type: String, required: true } // Nuevo campo
 });
 
 module.exports = mongoose.model('Task', taskSchema);
