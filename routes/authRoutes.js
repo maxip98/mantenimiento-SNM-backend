@@ -1,10 +1,15 @@
-// Define las rutas de autenticación para el registro y el inicio de sesión de usuarios.
-
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
 
-router.post('/register', authController.register);
-router.post('/login', authController.login);
+router.post('/register', (req, res) => {
+  console.log('Solicitud de registro recibida:', req.body); // Mensaje de depuración
+  authController.register(req, res);
+});
+
+router.post('/login', (req, res) => {
+  console.log('Solicitud de inicio de sesión recibida:', req.body); // Mensaje de depuración
+  authController.login(req, res);
+});
 
 module.exports = router;

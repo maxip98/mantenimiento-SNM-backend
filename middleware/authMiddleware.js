@@ -1,5 +1,3 @@
-// Verifica los roles de los usuarios para controlar el acceso a ciertas rutas basadas en los roles especificados.
-
 const jwt = require('jsonwebtoken');
 
 exports.verifyRole = (roles) => {

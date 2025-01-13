@@ -41,10 +41,10 @@ app.use(express.json());
 
 // Middleware global para manejar CORS
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://saynomoremantenimiento.netlify.app');
-    res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    next();
+  res.header('Access-Control-Allow-Origin', 'https://saynomoremantenimiento.netlify.app');
+  res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  next();
 });
 
 // Middleware de depuración
