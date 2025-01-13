@@ -1,3 +1,6 @@
+// Maneja el registro y el inicio de sesión de usuarios. 
+// Utiliza JWT para generar tokens de autenticación y bcrypt para comparar contraseñas.
+
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 

@@ -1,3 +1,6 @@
+// Define el esquema de la base de datos para las tareas, 
+// incluyendo campos como local, pedido, descripción, prioridad, fecha de carga, estado de completado, pedido por y tipo de mantenimiento.
+
 const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({
@@ -6,7 +9,9 @@ const taskSchema = new mongoose.Schema({
   descripcion: { type: String, required: true },
   prioridad: { type: String, required: true },
   fechaCarga: { type: Date, default: Date.now },
-  completed: { type: Boolean, default: false } // Nuevo campo
+  completed: { type: Boolean, default: false },
+  pedidoPor: { type: String, required: true },
+  tipoMantenimiento: { type: String, required: true } // Nuevo campo
 });
 
 module.exports = mongoose.model('Task', taskSchema);

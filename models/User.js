@@ -1,3 +1,6 @@
+// Define el esquema de la base de datos para los usuarios, 
+// incluyendo campos como nombre de usuario, contraseña y rol. También maneja el hashing de contraseñas y la comparación de contraseñas.
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 

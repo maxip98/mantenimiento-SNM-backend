@@ -1,3 +1,5 @@
+// Gestiona las tareas, incluyendo la obtención, creación, actualización, eliminación y marcación de tareas como completadas.
+
 const Task = require('../models/Task');
 
 exports.getTasks = async (req, res) => {
@@ -11,10 +13,20 @@ exports.getTasks = async (req, res) => {
 
 exports.createTask = async (req, res) => {
   try {
-    const task = new Task(req.body);
-    await task.save();
-    res.json(task);
+    const { local, pedido, descripcion, prioridad, tipoMantenimiento } = req.body;
+    console.log('Usuario que crea la tarea:', req.user.username); // Mensaje de depuración
+    const newTask = new Task({
+      local,
+      pedido,
+      descripcion,
+      prioridad,
+      tipoMantenimiento,
+      pedidoPor: req.user.username // Asignar el nombre de usuario del creador
+    });
+    await newTask.save();
+    res.json(newTask);
   } catch (error) {
+    console.error('Error al crear tarea:', error);
     res.status(500).send('Error al crear tarea');
   }
 };

@@ -1,3 +1,6 @@
+// Define las rutas para la gestión de tareas, 
+// incluyendo la obtención, creación, actualización, eliminación y marcación de tareas como completadas, con verificación de roles.
+
 const express = require('express');
 const router = express.Router();
 const taskController = require('../controllers/taskController');
