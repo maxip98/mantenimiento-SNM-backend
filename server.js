@@ -10,7 +10,7 @@ dotenv.config();
 
 const app = express();
 
-// Verificar que la URI esté definida
+// Verificar que la URI esté definida1
 if (!process.env.MONGODB_URI) {
   console.error('Error: MONGODB_URI no está definida en el archivo .env');
   process.exit(1);
