@@ -1,3 +1,6 @@
+// Define el esquema de la base de datos para las tareas, 
+// incluyendo campos como local, pedido, descripción, prioridad, fecha de carga, estado de completado, pedido por y tipo de mantenimiento.
+
 const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({
