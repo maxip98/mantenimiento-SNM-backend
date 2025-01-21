@@ -11,7 +11,8 @@ const taskSchema = new mongoose.Schema({
   fechaCarga: { type: Date, default: Date.now },
   completed: { type: Boolean, default: false },
   pedidoPor: { type: String, required: true },
-  tipoMantenimiento: { type: String, required: true } // Nuevo campo
+  tipoMantenimiento: { type: String, required: true },
+  observaciones: { type: String, default: '' } // Nuevo campo
 });
 
 module.exports = mongoose.model('Task', taskSchema);
